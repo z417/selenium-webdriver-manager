@@ -4,7 +4,7 @@
 Author: user
 Date: 2020-12-08 11:41:29
 LastEditors: user
-LastEditTime: 2020-12-08 18:16:12
+LastEditTime: 2020-12-08 18:16:40
 Descripttion: chrome instance
 '''
 import os
@@ -16,7 +16,7 @@ from xml.etree import ElementTree
 from swm import VERSION_RE, Browser_type, Manager
 
 
-class Chrome(Manager):
+class Chromium(Manager):
     def __init__(self, file):
         self.conf = super().get_ini(file)
         self.absPath = self.conf.get('driver', 'absPath')
@@ -43,7 +43,7 @@ class Chrome(Manager):
 
     def check_match_chrome(self):
         print('check Chrome and chromedriver wheather are matched')
-        c_v = super().browser_version(Browser_type.GOOGLE)
+        c_v = super().browser_version(Browser_type.CHROMIUM)
         d_v = self.chromedriver_version()
         if c_v == d_v:
             print('\033[0;32;40mChrome and chromedriver are matched.\033[0m')
@@ -80,7 +80,7 @@ class Chrome(Manager):
 
 
 if __name__ == '__main__':
-    c = Chrome('./conf.ini')
+    c = Chromium('./demo/conf.ini')
     # print("\033[1;37;40m\tHello World\033[0m")
     # print("\033[0;31;40m\tHello World\033[0m")
     # print("\033[0;32;40m\tHello World\033[0m")

@@ -67,4 +67,4 @@ $ pip uninstall selenium-webdriver-manager
 
 * Currently, it only includes google-chrome
 
-* More browser like Firefox, MS IE, MS Edge, Opera, chromium
+* More browser like Firefox, MS IE, MS Edge, Opera

@@ -4,7 +4,7 @@
 Author: user
 Date: 2020-12-08 11:41:29
 LastEditors: user
-LastEditTime: 2020-12-08 15:35:38
+LastEditTime: 2020-12-08 17:21:54
 Descripttion: chrome instance
 '''
 import os
@@ -22,6 +22,7 @@ class Chrome(Manager):
         self.absPath = self.conf.get('driver', 'absPath')
         self.url = self.conf.get('driver', 'url')
         self.check_match_chrome()
+        os.chmod(self.absPath, 0o755)
 
     def chromedriver_version(self):
         cmd = r'{} --version'.format(self.absPath)

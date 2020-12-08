@@ -48,7 +48,7 @@ $ pip uninstall selenium-webdriver-manager
 
   ```ini
   [driver]
-  absPath=driver\chromedriver
+  absPath=driver\chromedriver.exe
 
   ; Below 2 urls both work, choose only one at sametime
   ; url=http://npm.taobao.org/mirrors/chromedriver

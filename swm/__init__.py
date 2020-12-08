@@ -4,7 +4,7 @@
 Author: user
 Date: 2020-12-08 11:40:07
 LastEditors: user
-LastEditTime: 2020-12-08 15:35:17
+LastEditTime: 2020-12-08 17:06:43
 Descripttion: package
 '''
 import os
@@ -120,7 +120,7 @@ class Manager(metaclass=ManagerMetaClass):
             f'Complete!!\r\n\tunpack file list: \033[0;32;40m{self.unpack(file)}\033[0m')
 
     def unpack(self, file):
-        print(f'starting unpack {file}')
+        print(f'unpacking {file}')
         if file.endswith('.zip'):
             with zipfile.ZipFile(file, 'r') as zFile:
                 try:

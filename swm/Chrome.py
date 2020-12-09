@@ -4,7 +4,7 @@
 Author: user
 Date: 2020-12-08 11:41:29
 LastEditors: user
-LastEditTime: 2020-12-08 18:16:12
+LastEditTime: 2020-12-09 10:41:03
 Descripttion: chrome instance
 '''
 import os
@@ -22,17 +22,12 @@ class Chrome(Manager):
         self.absPath = self.conf.get('driver', 'absPath')
         self.url = self.conf.get('driver', 'url')
         self.check_match_chrome()
-        try:
-            os.chmod(self.absPath, 0o755)
-        except Exception:
-            pass
+        self.chmod(self.absPath)
 
     def chromedriver_version(self):
         cmd = r'{} --version'.format(self.absPath)
         output = super().shell(cmd)
-        if 'Permission denied' in output:
-            super().shell(f'chmod u+x {self.absPath}')
-            output = super().shell(cmd)
+        self.chmod(self.absPath)
         try:
             __v__ = VERSION_RE.findall(output.split(' ')[1])[0]
             print(f'current chromedriver Version: \033[0;33;40m{__v__}\033[0m')
@@ -80,7 +75,7 @@ class Chrome(Manager):
 
 
 if __name__ == '__main__':
-    c = Chrome('./conf.ini')
+    c = Chrome('./demo/conf.ini')
     # print("\033[1;37;40m\tHello World\033[0m")
     # print("\033[0;31;40m\tHello World\033[0m")
     # print("\033[0;32;40m\tHello World\033[0m")

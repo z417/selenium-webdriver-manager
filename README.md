@@ -50,9 +50,13 @@ $ pip uninstall selenium-webdriver-manager
   [driver]
   absPath=driver\chromedriver.exe
 
-  ; Below 2 urls both work, choose only one at sametime
+  # Below 2 urls both work, choose only one at sametime
   ; url=http://npm.taobao.org/mirrors/chromedriver
   url=https://chromedriver.storage.googleapis.com
+
+  # Below are MS Edge's config
+  ; absPath=driver\msedgedriver.exe
+  ; url=https://msedgedriver.azureedge.net
   ```
 
 * code in python
@@ -65,6 +69,6 @@ $ pip uninstall selenium-webdriver-manager
 
 ## TODO
 
-* Currently, it only includes google-chrome
+* Currently, it only includes google-chrome, MS Edge, Chromium
 
-* More browser like Firefox, MS IE, MS Edge, Opera
+* More browser like Firefox, MS IE, Opera

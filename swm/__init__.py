@@ -4,7 +4,7 @@
 Author: user
 Date: 2020-12-08 11:40:07
 LastEditors: user
-LastEditTime: 2020-12-08 17:06:43
+LastEditTime: 2020-12-09 10:44:15
 Descripttion: package
 '''
 import os
@@ -45,8 +45,15 @@ class ManagerMetaClass(type):
         attrs['os_name'] = OS_type.LINUX if __pl in (
             'linux', 'linux2') else OS_type.MAC if __pl == 'darwin' else OS_type.WIN
         attrs['os_type'] = f"{attrs['os_name'].value}{attrs['os_architecture']}"
+        attrs['chmod'] = cls.chmod
 
         return type.__new__(cls, name, bases, attrs)
+
+    def chmod(cls, file, per=0o755):
+        try:
+            os.chmod(file, per)
+        except Exception:
+            pass
 
 
 class Manager(metaclass=ManagerMetaClass):

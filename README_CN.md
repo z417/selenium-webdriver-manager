@@ -1,19 +1,20 @@
 # selenium-webdriver-manager
-## Profile
 
-* In Selenium automation, you often encounter situations where the browser and the driver version don't match. This project provided to automatically download the driver matching the local browser version. Chrome, Chromium and MS Edge are currently supported on Mac OS, Windos and Linux platforms.
+## 简介
 
-* It works as follows
+* 在selenium驱动的web自动化中，经常会碰浏览器和driver版本不匹配的状况，本项目提供的功能是自动下载与本地浏览器版本相匹配的driver; 目前在Mac OS, Windos, Linux平台上支持Chrome, Chromium, MS Edge
+
+* 工作原理如下
   
-  1. Get the current version of the specified browser
-  2. Get the version of the driver binary. (zero if there is none)
-  3. Compare the versions. The driver that matches the browser will be downloaded automatically if they don't match.
+  1. 获取当前指定浏览器的版本
+  2. 获取driver的版本(没有则显示0)
+  3. 比较版本号, 若不匹配, 则自动下载与浏览器匹配的driver
 
-## Environment
+## 运行环境
 
 * Python >= 3.6.x
 
-## Directory struct
+## 目录结构
 
 ```shell
 ├── demo                      // Simple example
@@ -26,22 +27,22 @@
 └── setup.py                  // For install
 ```
 
-## Install/Uninstall guide
+## 安/卸指南
 
-### Download selenium-webdriver-manager and run
+### 下载 selenium-webdriver-manager 后运行
 
 ```shell
 $ python setup.py install
 ```
-### Uninstall
+### 卸载
 
 ```shell
 $ pip uninstall selenium-webdriver-manager
 ```
 
-## Chrome demo
+## 管理Chrome的例子
 
-* touch a file like `conf.ini`
+* 新建配置文件如下 `conf.ini`
 
   ```ini
   [driver]
@@ -56,7 +57,7 @@ $ pip uninstall selenium-webdriver-manager
   ; url=https://msedgedriver.azureedge.net
   ```
 
-* code in python
+* 使用该项目
 
   ```python
   from swm.Chrome import Chrome
@@ -66,6 +67,6 @@ $ pip uninstall selenium-webdriver-manager
 
 ## TODO
 
-* Currently, it only includes google-chrome, MS Edge, Chromium
+* 目前, 只支持 google-chrome, MS Edge, Chromium
 
-* More browser like Firefox, MS IE, Opera
+* 未来计划支持 Firefox, MS IE, Opera

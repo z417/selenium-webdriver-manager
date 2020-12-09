@@ -1,7 +1,7 @@
 # selenium-webdriver-manager
 ## Profile
 
-* In Selenium automation, you often encounter situations where the browser and the driver version don't match. This project provided to automatically download the driver matching the local browser version. Chrome, Chromium and MS Edge are currently supported on Mac OS, Windos and Linux platforms.
+* In Selenium automation, you often encounter situations where the browser and the driver version don't match. This project provided to automatically download the driver matching the local browser version. Chrome, Chromium and MS Edge are currently supported on Mac OS, Windows and Linux platforms.
 
 * It works as follows
   

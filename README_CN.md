@@ -2,7 +2,7 @@
 
 ## 简介
 
-* 在selenium驱动的web自动化中，经常会碰浏览器和driver版本不匹配的状况，本项目提供的功能是自动下载与本地浏览器版本相匹配的driver; 目前在Mac OS, Windos, Linux平台上支持Chrome, Chromium, MS Edge
+* 在selenium驱动的web自动化中，经常会碰浏览器和driver版本不匹配的状况，本项目提供的功能是自动下载与本地浏览器版本相匹配的driver; 目前在Mac OS, Windows, Linux平台上支持Chrome, Chromium, MS Edge
 
 * 工作原理如下
   

@@ -4,11 +4,10 @@
 Author: user
 Date: 2020-12-08 11:40:07
 LastEditors: user
-LastEditTime: 2020-12-09 10:44:15
+LastEditTime: 2020-12-09 14:12:37
 Descripttion: package
 '''
 import os
-import platform
 import re
 import subprocess
 import sys
@@ -41,9 +40,9 @@ class ManagerMetaClass(type):
 
         __pl = sys.platform
         attrs['browser'] = name.lower()
-        attrs['os_architecture'] = 64 if platform.machine().endswith('64') else 32
-        attrs['os_name'] = OS_type.LINUX if __pl in (
-            'linux', 'linux2') else OS_type.MAC if __pl == 'darwin' else OS_type.WIN
+        attrs['os_architecture'] = 64 if sys.maxsize > 2**32 else 32
+        attrs['os_name'] = OS_type.LINUX if __pl.startswith(
+            'linux') else OS_type.MAC if __pl == 'darwin' else OS_type.WIN
         attrs['os_type'] = f"{attrs['os_name'].value}{attrs['os_architecture']}"
         attrs['chmod'] = cls.chmod
 
@@ -98,6 +97,7 @@ class Manager(metaclass=ManagerMetaClass):
                 OS_type.WIN: r'reg query "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome" /v version'
             },
             Browser_type.MSEDGE: {
+                OS_type.LINUX: 'microsoft-edge --version',
                 OS_type.MAC: r'/Applications/Microsoft\ Edge.app/Contents/MacOS/Microsoft\ Edge --version',
                 OS_type.WIN: r'reg query "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\BLBeacon" /v version',
             }

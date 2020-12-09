@@ -4,7 +4,7 @@
 Author: user
 Date: 2020-12-08 11:41:29
 LastEditors: user
-LastEditTime: 2020-12-09 11:42:30
+LastEditTime: 2020-12-09 14:31:12
 Descripttion: Edge instance
 '''
 import os
@@ -57,7 +57,11 @@ class Edge(Manager):
             name = Blob.find('Name').text
             if __v in name and self.os_type in name:
                 match_list.append(Blob.find('Url').text)
-        super().download_file(match_list[-1], save_d)
+        if match_list:
+            super().download_file(match_list[-1], save_d)
+        else:
+            print(
+                f"\033[0;31;40mDidn't find\033[0m. Maybe you should visit {self.url} individually to get")
 
 
 if __name__ == '__main__':

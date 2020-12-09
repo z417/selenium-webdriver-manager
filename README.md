@@ -24,7 +24,9 @@
 ├── demo                      // Simple example
 ├── swm
 │   ├── __init__.py           // main module
-│   └── Chrome.py             // Chrome manager
+│   ├── Chrome.py             // Chrome manager
+│   ├── Chromium.py
+│   └── Microsoft.py
 ├── README.md                 // Main guide
 └── setup.py                  // For install
 ```
